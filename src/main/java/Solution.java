@@ -47,15 +47,16 @@ public class Solution {
     */
    
     public double adjustDigits(double userDouble) {
+        int one = ((((int)userDouble/100)+1)%10)*100;
         int two = ((((int)userDouble%100)/10+1)%10)*10;
         int three = ((((int)userDouble%10)+1)%10);
-        int deci = (int)(userDouble % 1 * 100);
+        double deci = (userDouble % 1);
 
-        double four = (deci + 10)%10*.1;
-        double five = ((deci % 10)+1)%10 * .01;
-        double finalans = two+three+four+five;
+        double four = ((int)((deci + 0.1)/.1)%10*.1);
+        double five = (int)(((deci + 0.01)%.1)* 100)*.01;
+        double finalans = one+two+three+four+five;
         // remove 0.0 and return your answer
-        return finalans;
+        return five;
     }
 
     public static void main(String[] args) {
