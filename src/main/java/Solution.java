@@ -50,13 +50,11 @@ public class Solution {
         int one = ((((int)userDouble/100)+1)%10)*100;
         int two = ((((int)userDouble%100)/10+1)%10)*10;
         int three = ((((int)userDouble%10)+1)%10);
-        double deci = (userDouble % 1);
-
-        double four = ((int)((deci + 0.1)/.1)%10*.1);
-        double five = (int)(((deci + 0.01)%.1)* 100)*.01;
+        double four = (((int)((userDouble%1)*100)+10)%100/10*.1);
+        double five = (int)(((userDouble%1)+0.011)*100)%10/100.0;
         double finalans = one+two+three+four+five;
         // remove 0.0 and return your answer
-        return five;
+        return finalans;
     }
 
     public static void main(String[] args) {
